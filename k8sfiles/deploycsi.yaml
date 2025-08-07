@@ -15,7 +15,7 @@ spec:
         app: learnk8scsi
     spec:
       containers:
-      - name: game-2048
+      - name: learnk8scsi
         image: devesh77388/learnk8scsi:0
         ports:
         - containerPort: 3000
