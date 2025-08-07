@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: game-2048
-        image: devesh77388/learnk8scsi:0
+        image: devesh77388/learnk8scsi:8
         ports:
         - containerPort: 3000
