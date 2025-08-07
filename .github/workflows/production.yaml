@@ -37,9 +37,11 @@ jobs:
           sed -i "s|image: devesh77388/learnk8scsi:.*|image: devesh77388/learnk8scsi:${{ github.run_number }}|" k8sfiles/deploycsi.yaml
 
       - name: Commit and push updated manifest
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add  k8sfiles/deploycsi.yaml
           git commit -m "Update image tag to ${{ github.run_number }}"
-          git push origin main
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} HEAD:main
