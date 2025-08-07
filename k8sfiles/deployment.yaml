@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: learnk8scsi
-        image: devesh77388/learnk8scsi:0
+        image: devesh77388/learnk8scsi:12
         ports:
         - containerPort: 3000
