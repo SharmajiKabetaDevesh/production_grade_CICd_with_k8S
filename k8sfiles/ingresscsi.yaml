@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: learn.bestdeveshkrsharma.tech
+  - host: game.bestdeveshkrsharma.tech
     http:
       paths:
       - path: /

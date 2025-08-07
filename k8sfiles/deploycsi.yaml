@@ -1,19 +1,21 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: learnk8scsi-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: learnk8scsi-deployment
+  labels:
+    app: learnk8scsi
 spec:
-  ingressClassName: nginx
-  rules:
-  - host: learn.bestdeveshkrsharma.tech
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: learnk8scsi-service
-            port:
-              number: 80
+  replicas: 2
+  selector:
+    matchLabels:
+      app: learnk8scsi
+  template:
+    metadata:
+      labels:
+        app: learnk8scsi
+    spec:
+      containers:
+      - name: game-2048
+        image: devesh77388/learnk8scsi:0
+        ports:
+        - containerPort: 3000
