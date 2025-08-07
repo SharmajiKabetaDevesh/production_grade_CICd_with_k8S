@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnk8sCSI-deployment
+  labels:
+    app: learnk8sCSI
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: learnk8sCSI
+  template:
+    metadata:
+      labels:
+        app: learnk8sCSI
+    spec:
+      containers:
+      - name: game-2048
+        image: devesh77388/learnk8sCSI:0
+        ports:
+        - containerPort: 3000
